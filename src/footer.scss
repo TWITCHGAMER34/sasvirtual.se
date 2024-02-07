@@ -1,0 +1,35 @@
+
+footer {
+  background-color: #004B87;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.copyright {
+  margin-bottom: 20px;
+}
+
+.copyright p {
+  font-size: 1.2em;
+}
+
+.made-by {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  img {
+    height: 100px;
+    border-radius: 50%;
+  }
+}

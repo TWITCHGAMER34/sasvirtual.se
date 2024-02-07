@@ -1,0 +1,116 @@
+
+nav {
+  background-color: #004B87;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+#logo {
+  height: 50px;
+  margin-right: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  gap: 20px;
+  align-items: center;
+}
+
+nav ul a,.a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+}
+
+nav ul a:hover,button:hover {
+  background-color: #00335b;
+}
+
+
+.burger {
+  display: none;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  position: relative;
+  margin-top: 10px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger span {
+  height: 3px;
+  width: 100%;
+  background-color: #ffffff;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+nav ul.show {
+  display: block;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row > img {
+  margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+
+  nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+  }
+
+  nav ul.show {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .row {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav ul {
+    justify-content: space-evenly;
+  }
+
+}
