@@ -16,14 +16,142 @@
   background-color: #45a049;
 }
 
-.postBox {
+.post-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+  h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #008eff;
+  }
+
+  p {
+    margin: 0 0 10px;
+    color: white;
+  }
+
+  h3 {
+    margin: 10px 0;
+    color: white;
+  }
+
+  button {
+    background-color: #4CAF50 !important; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+
+  button:hover {
+    background-color: #357a3a !important;
+  }
+}
+
+.commentBox {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: none;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  &.active{
+
+  &.active {
     display: block;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 1rem 0.8rem 0.5rem 0.8rem;
+    border: none !important;
+    outline: none !important;
+    border-bottom: #2c49c2 2px solid !important;
+    font-size: 1rem;
+    color: white;
+    background-color: #212121;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    resize: vertical;
+    &:focus {
+      box-shadow: 0 0 5px #2c49c2;
+    }
+    &::placeholder {
+      color: #ffffff;
+    }
+  }
+}
+
+.postBox {
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: #212121;
+  border-radius: 4px;
+  display: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+  &.active {
+    display: block;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    color: #008eff !important;
+  }
+
+  p {
+    color: #4CAF50;
+    margin: 0;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 1rem 0.8rem 0.5rem 0.8rem;
+    border: none !important;
+    outline: none !important;
+    border-bottom: #2c49c2 2px solid !important;
+    font-size: 1rem;
+    color: white;
+    background-color: #212121;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    resize: vertical;
+    &:focus {
+      box-shadow: 0 0 5px #2c49c2;
+    }
+    &::placeholder {
+      color: #ffffff;
+    }
+  }
+
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+
+    &:hover {
+      background-color: #45a049;
+    }
   }
 }

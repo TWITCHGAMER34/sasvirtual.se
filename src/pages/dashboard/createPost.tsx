@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { BASE_URL } from "../../main.tsx";
 import { queryClient } from "../../providers.tsx";
+import { motion } from "framer-motion";
 
 export function CreatePost() {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -53,13 +54,14 @@ export function CreatePost() {
             value={postTitle}
             onChange={(e) => setPostTitle(e.target.value)}
           ></input>
+          <p>{postContent.length} /255</p>
           <textarea
             id="postContent"
             name="postContent"
-            placeholder="Content"
+            placeholder="Content "
             required
             value={postContent}
-            onChange={(e) => setPostContent(e.target.value)}
+            onChange={(e) => setPostContent(e.target.value.substring(0, 255))}
           ></textarea>
           {/*          <input
               type="file"
