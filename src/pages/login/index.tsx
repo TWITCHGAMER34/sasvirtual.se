@@ -51,7 +51,7 @@ export default function LoginPage() {
           />
         </div>
         <div className="form-group">
-          <span className="material-symbols-outlined">key</span>
+          <span className="material-symbols-outlined">password</span>
           <input
             type="password"
             value={password}

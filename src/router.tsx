@@ -5,6 +5,8 @@ import RegisterPage from "./pages/register";
 import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
 import { Helmet } from "react-helmet";
+import ConfirmPage from "./pages/confirm";
+import DashboardPage from "./pages/dashboard";
 
 export default function Router() {
   return (
@@ -16,6 +18,8 @@ export default function Router() {
         <Route path={"/register"} element={<RegisterPage />} />
         <Route path={"/about"} element={<AboutPage />} />
         <Route path={"/contact"} element={<ContactPage />} />
+        <Route path={"/confirm/:token"} element={<ConfirmPage />} />
+        <Route path={"/dashboard"} element={<DashboardPage />} />
       </Routes>
     </>
   );

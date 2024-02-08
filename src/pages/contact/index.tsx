@@ -1,13 +1,43 @@
 import { Helmet } from "react-helmet";
 //import { motion } from "framer-motion";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import "./contactStyles.scss";
+import { useMutation } from "@tanstack/react-query";
+import { BASE_URL } from "../../main.tsx";
+import axios from "axios";
 
 export default function ContactPage() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
+  const [error, setError] = useState<undefined | string>(undefined);
+
+  const contactAction = useMutation({
+    mutationFn: () =>
+      axios.post(`${BASE_URL}/send-email`, {
+        email: Email,
+        message: Message,
+        name: `${FirstName} ${LastName}`,
+      }),
+    onError: (error) => {
+      setError(error.message);
+    },
+  });
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (
+      FirstName.length < 1 ||
+      LastName.length < 1 ||
+      Email.length < 1 ||
+      Message.length < 1
+    ) {
+      setError("Please fill out all fields");
+      return;
+    }
+    contactAction.mutate();
+  };
 
   return (
     <>
@@ -16,10 +46,11 @@ export default function ContactPage() {
         <div id="alert" className="hidden">
           <div className="container">
             <form
-              action="/send-email"
-              method="POST"
-              encType="application/x-www-form-urlencoded"
+              onSubmit={handleSubmit}
+              className="contact-form"
+              autoComplete="off"
             >
+              {error && <div className="error">{error}</div>}
               <h1>Let´s Chat, Reach Out to Us</h1>
               <p>
                 Have questions or feedback? We´re here to help. Send us a
