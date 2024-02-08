@@ -6,6 +6,8 @@ import { useMutation } from "@tanstack/react-query";
 import { BASE_URL } from "../../main.tsx";
 import axios from "axios";
 
+import "../login/loginStyles.scss";
+
 export default function ContactPage() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");

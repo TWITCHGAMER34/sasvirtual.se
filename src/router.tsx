@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
-import { Helmet } from "react-helmet";
 import ConfirmPage from "./pages/confirm";
 import DashboardPage from "./pages/dashboard";
-
+import ProfilePage from "./pages/profile";
+import AdminPage from "./pages/admin";
 export default function Router() {
   return (
     <>
@@ -20,6 +22,8 @@ export default function Router() {
         <Route path={"/contact"} element={<ContactPage />} />
         <Route path={"/confirm/:token"} element={<ConfirmPage />} />
         <Route path={"/dashboard"} element={<DashboardPage />} />
+        <Route path={"/profile"} element={<ProfilePage />} />
+        <Route path={"/admin"} element={<AdminPage />} />
       </Routes>
     </>
   );

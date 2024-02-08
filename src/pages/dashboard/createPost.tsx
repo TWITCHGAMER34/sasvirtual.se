@@ -1,22 +1,24 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { BASE_URL } from "../../main.tsx";
 import { queryClient } from "../../providers.tsx";
-import { motion } from "framer-motion";
 
 export function CreatePost() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [postTitle, setPostTitle] = useState("");
   const [postContent, setPostContent] = useState("");
-  const [postImage, setPostImage] = useState(null);
+  const [postImage, setPostImage] = useState<null | File>(null);
+  const [postImagePreview, setPostImagePreview] = useState<null | string>(null);
 
   const postMutation = useMutation({
-    mutationFn: () =>
-      axios.post(`${BASE_URL}/post`, {
-        title: postTitle,
-        content: postContent,
-      }),
+    mutationFn: () => {
+      const formData = new FormData();
+      formData.append("title", postTitle);
+      formData.append("content", postContent);
+      postImage && formData.append("image", postImage);
+      return axios.post(`${BASE_URL}/post`, formData);
+    },
     onSuccess: async () => {
       await queryClient.invalidateQueries({
         queryKey: ["posts"],
@@ -24,8 +26,18 @@ export function CreatePost() {
       setPostTitle("");
       setPostContent("");
       setPostImage(null);
+      setPostImagePreview(null);
+      setIsFormVisible(false);
     },
   });
+
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files?.length < 1) return;
+    const blobUrl = URL.createObjectURL(files[0]);
+    setPostImagePreview(blobUrl);
+    setPostImage(files[0]);
+  };
 
   function handlePost() {
     setIsFormVisible(!isFormVisible);
@@ -58,18 +70,24 @@ export function CreatePost() {
           <textarea
             id="postContent"
             name="postContent"
-            placeholder="Content "
+            placeholder="Content"
             required
             value={postContent}
             onChange={(e) => setPostContent(e.target.value.substring(0, 255))}
           ></textarea>
-          {/*          <input
-              type="file"
-              id="postImage"
-              name="postImage"
-              accept="image/*"
-              onChange={(e) => setPostImage(e.target.files[0])}
-            ></input>*/}
+          <label htmlFor="postImage" className={"upload-label"}>
+            Upload pictures
+          </label>
+          <input
+            type="file"
+            id="postImage"
+            name="postImage"
+            accept="image/*"
+            onChange={handleImageChange}
+          ></input>
+          {postImagePreview && (
+            <img className={"preview-image"} src={postImagePreview}></img>
+          )}
           <input type="submit" value="Submit" id="postSubmit"></input>
         </form>
       </div>

@@ -3,15 +3,17 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { BASE_URL } from "../../main.tsx";
 import { queryClient } from "../../providers.tsx";
+import "./dashboardStyles.scss";
 
-export default function CreateComment() {
+export default function CreateComment({ id }: { id: number }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [message, setCommentContent] = useState("");
 
   const commentMutation = useMutation({
     mutationFn: () =>
       axios.post(`${BASE_URL}/comment`, {
-        message: message,
+        comment: message,
+        post_id: id,
       }),
     onSuccess: async () => {
       await queryClient.invalidateQueries({
@@ -27,8 +29,10 @@ export default function CreateComment() {
 
   function HandleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("message: ", message);
     commentMutation.mutate();
+    setTimeout(() => {
+      commentMutation.reset();
+    }, 2000);
   }
 
   return (
@@ -39,7 +43,6 @@ export default function CreateComment() {
       <div className={`commentBox ${isFormVisible ? "active" : ""}`}>
         <form onSubmit={HandleSubmit}>
           <h2>Create a Comment</h2>
-          {commentMutation.isSuccess && <p>Comment created successfully!</p>}
           <p>{message.length} /250</p>
           <textarea
             id="commentContent"
@@ -51,7 +54,10 @@ export default function CreateComment() {
               setCommentContent(e.target.value.substring(0, 255))
             }
           ></textarea>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={commentMutation.isPending}>
+            Submit
+          </button>
+          {commentMutation.isSuccess && <p>Comment created successfully!</p>}
         </form>
       </div>
     </>
