@@ -75,7 +75,7 @@ export default function AboutPage() {
             className={"text"}
           >
             <strong>Discord Link:</strong>{" "}
-            <a href="https://discord.gg/PQaMn2bQXZ">
+            <a className={"Dc-link"} href="https://discord.gg/PQaMn2bQXZ">
               {" "}
               SAS Virtual Discord Server
             </a>

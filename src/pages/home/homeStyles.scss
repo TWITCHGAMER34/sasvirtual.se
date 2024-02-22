@@ -58,7 +58,7 @@ body {
   h1 {
     margin: 0;
     font-size: 2.5em;
-    background-color: #005698;
+    background-color: #3b3b3ba8;
     padding: 10px;
     border-radius: 10px;
   }
@@ -66,7 +66,7 @@ body {
   p {
     margin: 10px 0;
     font-size: 1.2em;
-    background-color: #004B87;
+    background-color: #3b3b3ba8;
     padding: 10px;
     border-radius: 10px;
   }
@@ -101,6 +101,26 @@ section:not(.hero) {
   p {
     font-size: 1.2em;
     line-height: 1.8;
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 0 30%; // This means the card will grow and shrink as needed, and the base width is 30%
+  margin: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden; // This makes sure the image doesn't overflow the card
+
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover; // This makes sure the image covers the card, but still maintains its aspect ratio
   }
 }
 

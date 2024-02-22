@@ -55,6 +55,10 @@
       font-weight: bolder;
     }
 
+    input::placeholder{
+      color: #b9b9b9 !important;
+    }
+
     input[type="text"],
     input[type="email"],
     textarea {

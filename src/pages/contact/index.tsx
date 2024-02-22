@@ -53,17 +53,17 @@ export default function ContactPage() {
               autoComplete="off"
             >
               {error && <div className="error">{error}</div>}
-              <h1>Let´s Chat, Reach Out to Us</h1>
+              <h1>Let's Chat, Reach Out to Us</h1>
               <p>
-                Have questions or feedback? We´re here to help. Send us a
-                message, and we´ll respond within 48 hours.{" "}
+                Have questions or feedback? We're here to help. Send us a
+                message, and we'll respond within 48 hours.{" "}
               </p>
               <hr />
               <div className={"cont"}>
                 <div className="firstname">
                   <label htmlFor="firstname">First Name</label>
                   <input
-                    placeholder={"First Name"}
+                    placeholder={"John"}
                     id="firstname"
                     type="text"
                     name="name"
@@ -79,7 +79,7 @@ export default function ContactPage() {
                     type="text"
                     name="lastname"
                     required
-                    placeholder={"Last name"}
+                    placeholder={"Doe"}
                     value={LastName}
                     onChange={(e) => setLastName(e.target.value)}
                   />
@@ -92,7 +92,7 @@ export default function ContactPage() {
                   type="email"
                   name="email"
                   required
-                  placeholder={"Email adress"}
+                  placeholder={"john.doe@email.com"}
                   value={Email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -103,7 +103,6 @@ export default function ContactPage() {
                   id="message"
                   name="message"
                   required
-                  placeholder={"Message"}
                   value={Message}
                   onChange={(e) => setMessage(e.target.value.substring(0, 500))}
                 ></textarea>
