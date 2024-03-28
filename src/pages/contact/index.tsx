@@ -39,6 +39,11 @@ export default function ContactPage() {
       return;
     }
     contactAction.mutate();
+    alert("Message sent successfully!");
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setMessage("");
   };
 
   return (

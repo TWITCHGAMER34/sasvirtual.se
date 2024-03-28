@@ -23,6 +23,11 @@ export default function RegisterPage() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     registerAction.mutate();
+    alert("Registration successful! Check your email to verify your account.");
+    setUsername("");
+    setPassword("");
+    setConfirmPassword("");
+    setEmail("");
   }
 
   return (
