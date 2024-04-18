@@ -11,6 +11,12 @@ export const UserContext = createContext<{
 
 export const queryClient = new QueryClient();
 
+/**
+ * This component provides the UserContext and the QueryClient to the app.
+ * The UserContext is used to store the user data and the QueryClient is used to cache the data fetched from the server.
+ * @param children
+ * @constructor
+ */
 export function Providers({ children }: { children: ReactNode }) {
   const [user, setUser] = useState(undefined);
   const value = { user, setUser };

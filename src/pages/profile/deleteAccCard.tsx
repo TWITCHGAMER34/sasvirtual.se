@@ -6,6 +6,14 @@ import { UserContext } from "../../providers.tsx";
 import { useNavigate } from "react-router-dom";
 import "./profileStyles.scss";
 
+/**
+ * Delete account card component.
+ * This component is used to delete the user account.
+ * It contains a form with a field for the password.
+ * When the form is submitted, the user account is deleted.
+ * The user is required to enter their password to delete their account.
+ * @constructor
+ */
 const DeleteAccCard = () => {
   const [password, setPassword] = useState("");
   const user = useContext(UserContext);

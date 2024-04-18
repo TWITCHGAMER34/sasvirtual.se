@@ -7,6 +7,16 @@ import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import "./loginStyles.scss";
 
+/**
+ * Login page component.
+ * This component is used to log in the user.
+ * It contains a form with fields for the username and password.
+ * When the form is submitted, the user data is sent to the server to log in.
+ * If the login is successful, the user is redirected to the home page.
+ * If the login fails, an error message is displayed.
+ * The user is required to enter their username and password to log in.
+ * @constructor
+ */
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

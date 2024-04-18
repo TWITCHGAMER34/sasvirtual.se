@@ -34,6 +34,17 @@ const content = [
   },
 ];
 
+/**
+ * About page component.
+ * This component is used to display information about the virtual airline.
+ * It contains details about the mission, fleet, destinations, community, realism, and how to join.
+ * The user can learn about the virtual airline's commitment to providing a realistic and engaging flying experience.
+ * The user can also find information about the virtual fleet, destinations served, and community events.
+ * The user is encouraged to join the virtual airline to start their virtual aviation journey.
+ * The user can also find a link to the virtual airline's Discord server.
+ * The user can learn about the virtual airline's commitment to realism and professionalism.
+ * @constructor
+ */
 export default function AboutPage() {
   return (
     <>

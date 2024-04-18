@@ -5,6 +5,17 @@ import { BASE_URL } from "../../main.tsx";
 import { Helmet } from "react-helmet";
 import "../login/loginStyles.scss";
 
+/**
+ * Register page component.
+ * This component is used to register a new user.
+ * It contains a form with fields for the username, email, password, and confirm password.
+ * When the form is submitted, the user data is sent to the server to create a new user account.
+ * If the registration is successful, the user is redirected to the login page.
+ * If the registration fails, an error message is displayed.
+ * The user is required to verify their email address before they can log in.
+ * The user is also required to enter a valid email address.
+ * @constructor
+ */
 export default function RegisterPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +31,15 @@ export default function RegisterPage() {
       }),
   });
 
+  /**
+   * Handle the form submission.
+   * This function is called when the form is submitted.
+   * It sends the user data to the server to create a new user account.
+   * If the registration is successful, the user is redirected to the login page.
+   * If the registration fails, an error message is displayed.
+   * The user is required to verify their email address before they can log in.
+   * @param event
+   */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     registerAction.mutate();

@@ -1,5 +1,12 @@
 import "./footer.scss";
 
+/**
+ * Footer component.
+ * Contains the footer of the website.
+ * Contains the company name, the year, and the names of the developers.
+ * @constructor
+ */
+
 export function Footer() {
   return (
     <footer>

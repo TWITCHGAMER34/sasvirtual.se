@@ -5,6 +5,14 @@ import { BASE_URL } from "../../main.tsx";
 import { queryClient } from "../../providers.tsx";
 import "./dashboardStyles.scss";
 
+/**
+ * Create comment component.
+ * This component is used to create a new comment.
+ * It contains a form with a field for the comment content.
+ * When the form is submitted, the comment data is sent to the server to create a new comment.
+ * @param id
+ * @constructor
+ */
 export default function CreateComment({ id }: { id: number }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [message, setCommentContent] = useState("");

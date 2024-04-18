@@ -4,6 +4,13 @@ import axios from "axios";
 import { BASE_URL } from "../../main.tsx";
 import { queryClient } from "../../providers.tsx";
 
+/**
+ * Create post component.
+ * This component is used to create a new post.
+ * It contains a form with fields for the post title, content, and image.
+ * When the form is submitted, the post data is sent to the server to create a new post.
+ * @constructor
+ */
 export function CreatePost() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [postTitle, setPostTitle] = useState("");

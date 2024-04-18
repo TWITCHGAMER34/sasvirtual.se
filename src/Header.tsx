@@ -4,6 +4,16 @@ import { UserContext } from "./providers.tsx";
 import { Link } from "react-router-dom";
 import { LogoutButton } from "./LogoutButton.tsx";
 
+/**
+ * Header component.
+ * Contains the navigation bar.
+ * Links to the home page, about page, contact page, register page, login page, dashboard page, profile page, and admin page.
+ * If the user is logged in, it also links to the profile page and the dashboard page.
+ * If the user is an admin, it also links to the admin page.
+ * If the user is not logged in, it also links to the register page and the login page.
+ * If the user is logged in, it also contains a logout button.
+ * @constructor
+ */
 export function Header() {
   const [open, setOpen] = useState(false);
   const user = useContext(UserContext).user;

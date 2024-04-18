@@ -3,6 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { BASE_URL } from "../../main.tsx";
 
+/**
+ * Confirm page component.
+ * This component is used to confirm the user's account.
+ * It contains a form with a field for the token.
+ * When the form is submitted, the user's account is confirmed.
+ * @constructor
+ */
 export default function ConfirmPage() {
   const { token } = useParams();
   const navigate = useNavigate();

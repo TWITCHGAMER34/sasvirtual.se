@@ -24,6 +24,13 @@ interface Comment {
   post_id: number;
 }
 
+/**
+ * Admin page component.
+ * This component is used to display the admin page.
+ * It contains a list of users, posts, and comments.
+ * The admin can delete users, posts, and comments.
+ * @constructor
+ */
 export default function AdminPage() {
   const Users = useQuery({
     queryKey: ["users"],

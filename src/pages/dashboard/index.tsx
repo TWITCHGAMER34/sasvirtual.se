@@ -7,6 +7,15 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { BASE_URL } from "../../main.tsx";
 
+/**
+ * Dashboard page component.
+ * This component is used to display the dashboard page.
+ * It contains a list of posts and a form to create a new post.
+ * The user is required to be logged in to view the dashboard page.
+ * The user can create a new post by entering a title and content.
+ * The user can also view a list of posts and comments.
+ * @constructor
+ */
 export default function DashboardPage() {
   const postQuery = useQuery({
     queryKey: ["posts"],

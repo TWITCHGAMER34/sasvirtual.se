@@ -20,6 +20,14 @@ const content = [
   },
 ];
 
+/**
+ * Home page component.
+ * This component is used to display the home page content.
+ * It contains a hero section with a welcome message and a call to action button.
+ * It also contains a series of cards with information about the virtual airline.
+ * The cards include information about the virtual airline, the fleet, and the destinations served.
+ * @constructor
+ */
 export default function HomePage() {
   /*  const posts = useQuery({
           queryKey: ["posts"],

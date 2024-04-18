@@ -8,6 +8,17 @@ import axios from "axios";
 
 import "../login/loginStyles.scss";
 
+/**
+ * Contact page component.
+ * This component is used to display the contact page.
+ * It contains a form with fields for the user's first name, last name, email, and message.
+ * When the form is submitted, the user's message is sent to the server.
+ * The user is required to enter their first name, last name, email, and message to send a message.
+ * If the message is sent successfully, an alert is displayed.
+ * If the message fails to send, an error message is displayed.
+ * The user is required to fill out all fields to send a message.
+ * @constructor
+ */
 export default function ContactPage() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
@@ -25,6 +36,13 @@ export default function ContactPage() {
     onError: (error) => {
       setError(error.message);
     },
+    onSuccess: () => {
+      alert("Message sent successfully!");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
+    },
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -39,11 +57,6 @@ export default function ContactPage() {
       return;
     }
     contactAction.mutate();
-    alert("Message sent successfully!");
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setMessage("");
   };
 
   return (

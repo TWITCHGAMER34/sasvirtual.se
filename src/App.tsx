@@ -7,6 +7,16 @@ import { BASE_URL } from "./main.tsx";
 import { useContext } from "react";
 import { UserContext } from "./providers.tsx";
 
+/**
+ * Main application component.
+ * This component is the root component of the application.
+ * It contains the header, main content, and footer of the application.
+ * It also fetches the user data from the server and stores it in the user context.
+ * The user context is used to determine if the user is logged in or not.
+ * If the user is logged in, the user data is stored in the user context.
+ * If the user is not logged in, the user context is set to null.
+ * @constructor
+ */
 function App() {
   const user = useContext(UserContext);
 

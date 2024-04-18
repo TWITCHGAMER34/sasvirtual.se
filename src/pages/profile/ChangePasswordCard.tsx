@@ -4,6 +4,14 @@ import axios from "axios";
 import { BASE_URL } from "../../main.tsx";
 import "./profileStyles.scss";
 
+/**
+ * Change password card component.
+ * This component is used to change the user's password.
+ * It contains a form with fields for the old password, new password, and confirm new password.
+ * When the form is submitted, the user's password is changed.
+ * The user is required to enter their old password, new password, and confirm new password to change their password.
+ * @constructor
+ */
 const ChangePasswordCard = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [password, setPassword] = useState("");
