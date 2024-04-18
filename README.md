@@ -1,30 +1,34 @@
-# React + TypeScript + Vite
+# Scandinavian Airlines Virtual - sasvirtual.se
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a comprehensive web application built with TypeScript, JavaScript, PNPM, and React. The application serves as a platform for users to interact with Scandinavian Airlines Virtual.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User Authentication: Users can create a new account and log in to their existing accounts.
+- User Profile: Users can view and edit their profile information.
+- Dashboard: Users can manage their details and settings.
+- Contact Form: Users can send messages to the website administrators.
+- Admin Panel: Administrators can manage user accounts and view website statistics.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/sasvirtual.se.git
+```
+2. Install the dependencies
+```bash
+pnpm install
+```
+3. Start the development server
+```bash
+pnpm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
